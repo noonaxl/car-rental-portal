@@ -15,7 +15,7 @@ clean architecture, testing, and deployment.
 ### Backend
 
 ![Python](https://img.shields.io/badge/Python-3.12.10-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Django](https://img.shields.io/badge/Django-5.x-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Django](https://img.shields.io/badge/Django-5.2.16-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![Django REST Framework](https://img.shields.io/badge/Django_REST_Framework-API-ff1709?style=for-the-badge&logo=django&logoColor=white)
 
 ---
