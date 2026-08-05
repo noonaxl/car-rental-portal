@@ -4,10 +4,6 @@ from .views import CarViewSet
 
 router = DefaultRouter()
 
-router.register(
-    "cars",
-    CarViewSet,
-    basename="cars"
-)
+router.register("", CarViewSet, basename="cars")
 
 urlpatterns = router.urls
