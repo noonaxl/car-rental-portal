@@ -26,5 +26,6 @@ class CarSerializer(serializers.ModelSerializer):
             "model",
             "year",
             "price_per_day",
+            "category",
             "images",
         ]
