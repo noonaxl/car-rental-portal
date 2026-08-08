@@ -23,10 +23,10 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls),
 
-    path("api/users/", include("apps.users.urls")),
+    path("api/v1/users/", include("apps.users.urls")),
     path("api/v1/cars/", include("apps.cars.urls")),
-    path("api/bookings/", include("apps.bookings.urls")),
-    path("api/reviews/", include("apps.reviews.urls")),
+    path("api/v1/bookings/", include("apps.bookings.urls")),
+    path("api/v1/reviews/", include("apps.reviews.urls")),
 ]
 
 if settings.DEBUG:
