@@ -29,9 +29,22 @@ class ReviewSerializer(serializers.ModelSerializer):
         return value
 
     def validate(self, attrs):
-        user = attrs.get("user")
-        car = attrs.get("car")
-        booking = attrs.get("booking")
+        instance = self.instance
+
+        user = attrs.get(
+            "user",
+            instance.user if instance else None,
+        )
+
+        car = attrs.get(
+            "car",
+            instance.car if instance else None,
+        )
+
+        booking = attrs.get(
+            "booking",
+            instance.booking if instance else None,
+        )
 
         if booking:
             if booking.user_id != user.id:
