@@ -101,3 +101,32 @@ exclude = [
     "**/migrations",
     ".venv",
 ]
+
+# =====================================================
+# Pytest - тестирование Django
+# =====================================================
+
+[tool.pytest.ini_options]
+
+# Django settings
+DJANGO_SETTINGS_MODULE = "config.settings"
+
+# Где искать тесты
+python_files = [
+    "test_*.py",
+    "*_test.py",
+    "tests.py",
+]
+
+# Какие классы считать тестовыми
+python_classes = [
+    "Test*",
+]
+
+# Какие функции считать тестами
+python_functions = [
+    "test_*",
+]
+
+# Подробный вывод
+addopts = "-v"
