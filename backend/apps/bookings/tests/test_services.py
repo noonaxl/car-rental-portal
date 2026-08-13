@@ -4,7 +4,7 @@ from decimal import Decimal
 from django.test import TestCase
 
 from apps.bookings.services import create_booking, update_booking
-from apps.cars.models import Car
+from apps.cars.models import Car, Category
 from apps.users.models import User
 
 
@@ -17,11 +17,17 @@ class BookingServiceTests(TestCase):
             password="testpassword",
         )
 
+        self.category = Category.objects.create(
+            name="SUV",
+            description="Sport utility vehicles",
+        )
+
         self.car = Car.objects.create(
             brand="BMW",
             model="X5",
             year=2024,
             price_per_day=Decimal("100.00"),
+            category=self.category,
         )
 
     def test_create_booking_calculates_total_price(self):
@@ -48,6 +54,7 @@ class BookingServiceTests(TestCase):
             model="C-Class",
             year=2024,
             price_per_day=Decimal("200.00"),
+            category=self.category,
         )
 
         booking = create_booking(
