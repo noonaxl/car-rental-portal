@@ -14,11 +14,15 @@ class UserSerializer(serializers.ModelSerializer):
             "phone",
             "first_name",
             "last_name",
+            "role",
             "created_at",
+            "updated_at",
         ]
         read_only_fields = [
             "id",
+            "role",
             "created_at",
+            "updated_at",
         ]
 
 
@@ -39,11 +43,25 @@ class RegisterSerializer(serializers.ModelSerializer):
             "last_name",
         ]
 
+    def validate(self, attrs):
+        if "role" in self.initial_data:
+            raise serializers.ValidationError(
+                {
+                    "role": (
+                        "You cannot set your role "
+                        "during registration."
+                    )
+                }
+            )
+
+        return attrs
+
     def create(self, validated_data):
         password = validated_data.pop("password")
 
         user = User.objects.create_user(
             password=password,
+            role=User.Role.USER,
             **validated_data,
         )
 
